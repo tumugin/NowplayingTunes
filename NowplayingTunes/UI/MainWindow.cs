@@ -36,6 +36,7 @@ namespace NowplayingTunes
             checkBoxPostAlbumArtWork.Checked = set.PostAlbumArtWork;
             CheckUpdate.Checked = set.CheckUpdate;
             CheckBoxDeleteText140.Checked = set.DeleteText140;
+            CheckBoxExitWithiTunes.Checked = set.ExitWithiTunes;
             NotifyUpdate.Checked = set.NotifyUpdate;
             numericUpDownWaitSecond.Value = set.WaitSecond;
             numericUpDownWaitSecond2.Value = set.WaitSecond2;
@@ -63,6 +64,7 @@ namespace NowplayingTunes
             set.WaitSecond = (int)numericUpDownWaitSecond.Value;
             set.WaitSecond2 = (int)numericUpDownWaitSecond2.Value;
             set.DeleteText140 = CheckBoxDeleteText140.Checked;
+            set.ExitWithiTunes = CheckBoxExitWithiTunes.Checked;
             foreach (ListViewItem item in AccountList.Items)
             {
                 Core.ApplicationSetting.AccountClass account = new Core.ApplicationSetting.AccountClass();
@@ -104,6 +106,11 @@ namespace NowplayingTunes
             else
             {
                 notifyIcon1.Icon = NowplayingTunes.Properties.Resources.NP_Icon_Disabled;
+                //iTunesと同時に終了する設定ならば
+                if (CheckBoxExitWithiTunes.Checked == true)
+                {
+                    Application.Exit();
+                }
             }
         }
 
@@ -320,9 +327,7 @@ namespace NowplayingTunes
 
         private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            this.Show();
-            this.WindowState = FormWindowState.Normal;
-            this.Activate();
+            カスタム投稿TToolStripMenuItem_Click(sender, e);
         }
 
         private void 終了ToolStripMenuItem_Click(object sender, EventArgs e)

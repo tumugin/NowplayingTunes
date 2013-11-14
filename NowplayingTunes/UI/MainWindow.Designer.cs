@@ -88,6 +88,7 @@
             this.終了ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.NewVersionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.CheckBoxExitWithiTunes = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.SettingPanelTabControl.SuspendLayout();
             this.BasicSettings.SuspendLayout();
@@ -117,7 +118,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(189, 322);
+            this.panel1.Size = new System.Drawing.Size(189, 359);
             this.panel1.TabIndex = 0;
             // 
             // ButtonBasicSettings
@@ -195,17 +196,18 @@
             this.SettingPanelTabControl.Location = new System.Drawing.Point(190, -26);
             this.SettingPanelTabControl.Name = "SettingPanelTabControl";
             this.SettingPanelTabControl.SelectedIndex = 0;
-            this.SettingPanelTabControl.Size = new System.Drawing.Size(435, 347);
+            this.SettingPanelTabControl.Size = new System.Drawing.Size(435, 385);
             this.SettingPanelTabControl.TabIndex = 1;
             // 
             // BasicSettings
             // 
+            this.BasicSettings.Controls.Add(this.CheckBoxExitWithiTunes);
             this.BasicSettings.Controls.Add(this.label7);
             this.BasicSettings.Controls.Add(this.groupBox2);
             this.BasicSettings.Controls.Add(this.groupBox1);
             this.BasicSettings.Location = new System.Drawing.Point(4, 27);
             this.BasicSettings.Name = "BasicSettings";
-            this.BasicSettings.Size = new System.Drawing.Size(427, 316);
+            this.BasicSettings.Size = new System.Drawing.Size(427, 354);
             this.BasicSettings.TabIndex = 0;
             this.BasicSettings.Text = "基本設定";
             this.BasicSettings.UseVisualStyleBackColor = true;
@@ -213,7 +215,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(146, 288);
+            this.label7.Location = new System.Drawing.Point(146, 330);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(272, 18);
             this.label7.TabIndex = 2;
@@ -693,12 +695,22 @@
             this.NewVersionToolStripMenuItem.Text = "アップデートを確認していません";
             this.NewVersionToolStripMenuItem.Click += new System.EventHandler(this.NewVersionToolStripMenuItem_Click);
             // 
+            // CheckBoxExitWithiTunes
+            // 
+            this.CheckBoxExitWithiTunes.AutoSize = true;
+            this.CheckBoxExitWithiTunes.Location = new System.Drawing.Point(9, 284);
+            this.CheckBoxExitWithiTunes.Name = "CheckBoxExitWithiTunes";
+            this.CheckBoxExitWithiTunes.Size = new System.Drawing.Size(290, 22);
+            this.CheckBoxExitWithiTunes.TabIndex = 3;
+            this.CheckBoxExitWithiTunes.Text = "iTunesの終了と同時になうぷれTunesを終了する";
+            this.CheckBoxExitWithiTunes.UseVisualStyleBackColor = true;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(621, 322);
+            this.ClientSize = new System.Drawing.Size(621, 358);
             this.Controls.Add(this.SettingPanelTabControl);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("メイリオ", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
@@ -797,6 +809,7 @@
         private System.Windows.Forms.ToolStripMenuItem NewVersionToolStripMenuItem;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.CheckBox CheckBoxDeleteText140;
+        private System.Windows.Forms.CheckBox CheckBoxExitWithiTunes;
     }
 }
 
