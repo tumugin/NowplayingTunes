@@ -38,6 +38,7 @@
             this.ButtonAutoPostSettings = new System.Windows.Forms.Button();
             this.SettingPanelTabControl = new System.Windows.Forms.TabControl();
             this.BasicSettings = new System.Windows.Forms.TabPage();
+            this.CheckBoxExitWithiTunes = new System.Windows.Forms.CheckBox();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -88,7 +89,6 @@
             this.終了ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.NewVersionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.CheckBoxExitWithiTunes = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.SettingPanelTabControl.SuspendLayout();
             this.BasicSettings.SuspendLayout();
@@ -211,6 +211,16 @@
             this.BasicSettings.TabIndex = 0;
             this.BasicSettings.Text = "基本設定";
             this.BasicSettings.UseVisualStyleBackColor = true;
+            // 
+            // CheckBoxExitWithiTunes
+            // 
+            this.CheckBoxExitWithiTunes.AutoSize = true;
+            this.CheckBoxExitWithiTunes.Location = new System.Drawing.Point(9, 284);
+            this.CheckBoxExitWithiTunes.Name = "CheckBoxExitWithiTunes";
+            this.CheckBoxExitWithiTunes.Size = new System.Drawing.Size(290, 22);
+            this.CheckBoxExitWithiTunes.TabIndex = 3;
+            this.CheckBoxExitWithiTunes.Text = "iTunesの終了と同時になうぷれTunesを終了する";
+            this.CheckBoxExitWithiTunes.UseVisualStyleBackColor = true;
             // 
             // label7
             // 
@@ -336,7 +346,7 @@
             this.AutoPostSettings.Controls.Add(this.groupBox3);
             this.AutoPostSettings.Location = new System.Drawing.Point(4, 27);
             this.AutoPostSettings.Name = "AutoPostSettings";
-            this.AutoPostSettings.Size = new System.Drawing.Size(427, 316);
+            this.AutoPostSettings.Size = new System.Drawing.Size(427, 354);
             this.AutoPostSettings.TabIndex = 1;
             this.AutoPostSettings.Text = "自動投稿設定";
             this.AutoPostSettings.UseVisualStyleBackColor = true;
@@ -497,7 +507,7 @@
             this.UpdateSettings.Controls.Add(this.groupBox4);
             this.UpdateSettings.Location = new System.Drawing.Point(4, 27);
             this.UpdateSettings.Name = "UpdateSettings";
-            this.UpdateSettings.Size = new System.Drawing.Size(427, 316);
+            this.UpdateSettings.Size = new System.Drawing.Size(427, 354);
             this.UpdateSettings.TabIndex = 2;
             this.UpdateSettings.Text = "アップデート設定";
             this.UpdateSettings.UseVisualStyleBackColor = true;
@@ -538,7 +548,7 @@
             this.DebugMode.Controls.Add(this.DebugTextBox);
             this.DebugMode.Location = new System.Drawing.Point(4, 27);
             this.DebugMode.Name = "DebugMode";
-            this.DebugMode.Size = new System.Drawing.Size(427, 316);
+            this.DebugMode.Size = new System.Drawing.Size(427, 354);
             this.DebugMode.TabIndex = 3;
             this.DebugMode.Text = "デバッグモード";
             this.DebugMode.UseVisualStyleBackColor = true;
@@ -559,7 +569,7 @@
             this.VersionInfo.Controls.Add(this.pictureBox1);
             this.VersionInfo.Location = new System.Drawing.Point(4, 27);
             this.VersionInfo.Name = "VersionInfo";
-            this.VersionInfo.Size = new System.Drawing.Size(427, 316);
+            this.VersionInfo.Size = new System.Drawing.Size(427, 354);
             this.VersionInfo.TabIndex = 4;
             this.VersionInfo.Text = "バージョン情報";
             this.VersionInfo.UseVisualStyleBackColor = true;
@@ -593,16 +603,16 @@
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(102, 18);
             this.label11.TabIndex = 0;
-            this.label11.Text = "バージョン:2.0.1";
+            this.label11.Text = "バージョン:2.0.2";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(3, 22);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(152, 18);
+            this.label10.Size = new System.Drawing.Size(165, 18);
             this.label10.TabIndex = 2;
-            this.label10.Text = "かずきさん＠がんばらない";
+            this.label10.Text = "開発:大石一稀(Kazuki Oishi)";
             // 
             // label9
             // 
@@ -694,16 +704,6 @@
             this.NewVersionToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.NewVersionToolStripMenuItem.Text = "アップデートを確認していません";
             this.NewVersionToolStripMenuItem.Click += new System.EventHandler(this.NewVersionToolStripMenuItem_Click);
-            // 
-            // CheckBoxExitWithiTunes
-            // 
-            this.CheckBoxExitWithiTunes.AutoSize = true;
-            this.CheckBoxExitWithiTunes.Location = new System.Drawing.Point(9, 284);
-            this.CheckBoxExitWithiTunes.Name = "CheckBoxExitWithiTunes";
-            this.CheckBoxExitWithiTunes.Size = new System.Drawing.Size(290, 22);
-            this.CheckBoxExitWithiTunes.TabIndex = 3;
-            this.CheckBoxExitWithiTunes.Text = "iTunesの終了と同時になうぷれTunesを終了する";
-            this.CheckBoxExitWithiTunes.UseVisualStyleBackColor = true;
             // 
             // MainWindow
             // 
