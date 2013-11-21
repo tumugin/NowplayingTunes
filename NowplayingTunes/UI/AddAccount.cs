@@ -65,7 +65,7 @@ namespace NowplayingTunes
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show(ex.ToString(), "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
