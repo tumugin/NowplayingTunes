@@ -30,7 +30,7 @@ namespace NowplayingTunes.iTunes
                 iTunes.OnPlayerPlayEvent += iTunes_OnPlayerPlayEvent;
                 iTunes.OnAboutToPromptUserToQuitEvent += iTunes_OnAboutToPromptUserToQuitEvent;
                 OniTunesStartExit(true);
-                Debug.WriteLine("[Event init LinkToiTunes] Connect to iTunes OK!");
+                Trace.WriteLine("[Event init LinkToiTunes] Connect to iTunes OK!");
             }
             else
             {
@@ -42,7 +42,7 @@ namespace NowplayingTunes.iTunes
         //監視スレッド起動
         void StartChecker()
         {
-            Debug.WriteLine("[Event StartChecker LinkToiTunes] Starting itunes watcher...");
+            Trace.WriteLine("[Event StartChecker LinkToiTunes] Starting itunes watcher...");
             Thread thread = new Thread(CheckiTunesProcess);
             thread.IsBackground = true;
             thread.Start();
@@ -60,7 +60,7 @@ namespace NowplayingTunes.iTunes
                     iTunes = new iTunesAppClass();
                     iTunes.OnPlayerPlayEvent += iTunes_OnPlayerPlayEvent;
                     iTunes.OnAboutToPromptUserToQuitEvent += iTunes_OnAboutToPromptUserToQuitEvent;
-                    Debug.WriteLine("[Event CheckiTunesProcess LinkToiTunes] iTunes link OK!");
+                    Trace.WriteLine("[Event CheckiTunesProcess LinkToiTunes] iTunes link OK!");
                     OniTunesStartExit(true);
                     break;
                 }
@@ -79,7 +79,7 @@ namespace NowplayingTunes.iTunes
                 if (Process.GetProcessesByName("itunes").Count() == 0)
                 {
                     //無事に終了する
-                    Debug.WriteLine("[Event WaitUntilItunesEnd LinkToiTunes] iTunes stop OK! Starting itunes watcher...");
+                    Trace.WriteLine("[Event WaitUntilItunesEnd LinkToiTunes] iTunes stop OK! Starting itunes watcher...");
                     StartChecker();
                     break;
                 }
@@ -124,7 +124,7 @@ namespace NowplayingTunes.iTunes
             System.GC.WaitForPendingFinalizers();
             System.GC.Collect();
             //iTunesの終了を待つスレッドを起動
-            Debug.WriteLine("[Event iTunesDispose LinkToiTunes] Starting iTunes stop watcher...");
+            Trace.WriteLine("[Event iTunesDispose LinkToiTunes] Starting iTunes stop watcher...");
             Thread thread = new Thread(WaitUntilItunesEnd);
             thread.IsBackground = true;
             thread.Start();

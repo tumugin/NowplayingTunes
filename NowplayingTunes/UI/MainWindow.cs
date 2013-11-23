@@ -143,7 +143,8 @@ namespace NowplayingTunes
         {
             //デバッガの準備
             Core.Debugger.TextBoxTraceListener tbtl = new Core.Debugger.TextBoxTraceListener(DebugTextBox);
-            Debug.Listeners.Add(tbtl);
+            //Debug.Listeners.Add(tbtl);
+            Trace.Listeners.Add(tbtl);
 
             //tmpフォルダの作成
             if (System.IO.Directory.Exists(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\tmp\") == false)
@@ -255,13 +256,13 @@ namespace NowplayingTunes
         {
             try
             {
-                Debug.WriteLine("[Event OnSongChangedEvent MainWindow]" + "Title:" + song.SongTitle + ",Artist:" + song.SongArtist);
-                Debug.WriteLine("[Event 自動投稿 MainWindow]" + "Sending tweet...");
+                Trace.WriteLine("[Event OnSongChangedEvent MainWindow]" + "Title:" + song.SongTitle + ",Artist:" + song.SongArtist);
+                Trace.WriteLine("[Event 自動投稿 MainWindow]" + "Sending tweet...");
 
                 //曲が再生されているか確認する
                 if(itunes.checkIsPlaying() == false)
                 {
-                    Debug.WriteLine("[Event 自動投稿 MainWindow]" + "Not playing... exit thread.");
+                    Trace.WriteLine("[Event 自動投稿 MainWindow]" + "Not playing... exit thread.");
                     return;
                 }
 
@@ -297,7 +298,7 @@ namespace NowplayingTunes
                     thread.Start();
                 }
 
-                Debug.WriteLine("[Event 自動投稿 MainWindow]" + "Tweet send thread start...");
+                Trace.WriteLine("[Event 自動投稿 MainWindow]" + "Tweet send thread start...");
             }
             catch (Exception ex)
             {
@@ -364,7 +365,7 @@ namespace NowplayingTunes
             {
                 //待機中のツイートを全てキャンセル
                 songmanage.StopAllWaitingEvent();
-                Debug.WriteLine("[Event 今すぐツイート MainWindow]" + "Stopped all waiting event.");
+                Trace.WriteLine("[Event 今すぐツイート MainWindow]" + "Stopped all waiting event.");
 
                 Core.iTunesClass song = songmanage.getLatestSong();
                 if (song == null)
@@ -373,7 +374,7 @@ namespace NowplayingTunes
                     return;
                 }
 
-                Debug.WriteLine("[Event 今すぐツイート MainWindow]" + "Sending tweet...");
+                Trace.WriteLine("[Event 今すぐツイート MainWindow]" + "Sending tweet...");
 
                 //アカウントのリストを作成する
                 List<Core.ApplicationSetting.AccountClass> acclist = new List<ApplicationSetting.AccountClass>();
@@ -407,7 +408,7 @@ namespace NowplayingTunes
                     thread.Start();
                 }
 
-                Debug.WriteLine("[Event 今すぐツイート MainWindow]" + "Tweet process started!");
+                Trace.WriteLine("[Event 今すぐツイート MainWindow]" + "Tweet process started!");
             }
             catch (Exception ex)
             {
@@ -418,18 +419,18 @@ namespace NowplayingTunes
         void twitterpost_onProcessFinished(List<TwitterService> response)
         {
             //ツイート完了時のイベント
-            Debug.WriteLine("[Event TwitterPostProcessFinished MainWindow]" + "Send completed.");
+            Trace.WriteLine("[Event TwitterPostProcessFinished MainWindow]" + "Send completed.");
             foreach (TwitterService service in response)
             {
                 if (service.Response.StatusCode == System.Net.HttpStatusCode.OK)
                 {
                     //返り値が200だった場合は
-                    Debug.WriteLine("[Event TwitterPostProcessFinished MainWindow]" + "Send OK!");
+                    Trace.WriteLine("[Event TwitterPostProcessFinished MainWindow]" + "Send OK!");
                 }
                 else
                 {
                     //エラーの場合はエラーメッセージを表示する
-                    Debug.WriteLine("[ERROR TwitterPostProcessFinished MainWindow]" + service.Response.Error);
+                    Trace.WriteLine("[ERROR TwitterPostProcessFinished MainWindow]" + service.Response.Error);
                 }
             }
         }

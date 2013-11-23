@@ -53,7 +53,7 @@ namespace NowplayingTunes.Twitter
             }
             catch (Exception ex)
             {
-                Debug.WriteLine("[TwitterPost ERROR]" + ex.ToString());
+                Trace.WriteLine("[TwitterPost ERROR]" + ex.ToString());
             }
         }
 

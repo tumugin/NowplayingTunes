@@ -54,7 +54,7 @@ namespace NowplayingTunes.Core
         void ev_OnPlayerPlayEvent(iTunesClass song)
         {
             //iTunesのスレッドで実行されてるから使う時は必ずスレッドを建てること!!
-            Debug.WriteLine("[Event OnPlayerPlayEvent(iTunesThread) SongManagement]" + "Title:" + song.SongTitle + ",Artist:" + song.SongArtist);
+            Trace.WriteLine("[Event OnPlayerPlayEvent(iTunesThread) SongManagement]" + "Title:" + song.SongTitle + ",Artist:" + song.SongArtist);
             // スレッド開始
             SongChangeEventSenderClass senderclass = new SongChangeEventSenderClass(this);
             senderclass.song = song;
@@ -111,7 +111,7 @@ namespace NowplayingTunes.Core
             {
                 try
                 {
-                    Debug.WriteLine("[Event SongChangeEventSender SongManagement]" + "Title:" + song.SongTitle + ",Artist:" + song.SongArtist);
+                    Trace.WriteLine("[Event SongChangeEventSender SongManagement]" + "Title:" + song.SongTitle + ",Artist:" + song.SongArtist);
                     //履歴に保存
                     SongManagementForEventSender.SongList.Add(song);
                     //ここで待機処理とかをする
@@ -127,12 +127,12 @@ namespace NowplayingTunes.Core
                     {
                         //秒からミリ秒に変換
                         //指定秒数待つ
-                        Debug.WriteLine("[Event SongChangeEventSender SongManagement]" + "EnableLateTweet=true waiting for " + EventSetting.LateTweetSeconds * 1000 + "msec.");
+                        Trace.WriteLine("[Event SongChangeEventSender SongManagement]" + "EnableLateTweet=true waiting for " + EventSetting.LateTweetSeconds * 1000 + "msec.");
                         System.Threading.Thread.Sleep(EventSetting.LateTweetSeconds * 1000);
                         //前回と同じ曲かどうか調べる
                         if (SongManagementForEventSender.SongList[SongManagementForEventSender.SongList.Count - 1].TrackDatabaseID != song.TrackDatabaseID)
                         {
-                            Debug.WriteLine("[Event SongChangeEventSender SongManagement]" + "Song changed!! Exit thread.");
+                            Trace.WriteLine("[Event SongChangeEventSender SongManagement]" + "Song changed!! Exit thread.");
                             return;
                         }
                     }
@@ -146,7 +146,7 @@ namespace NowplayingTunes.Core
                             //同じアルバムの場合は処理を抜ける
                             if (SongManagementForEventSender.SongList[SongManagementForEventSender.SongList.Count - 2].SongAlbum == song.SongAlbum)
                             {
-                                Debug.WriteLine("[Event SongChangeEventSender SongManagement]" + "Album not changed!! Exit thread.");
+                                Trace.WriteLine("[Event SongChangeEventSender SongManagement]" + "Album not changed!! Exit thread.");
                                 return;
                             }
                         }
@@ -161,10 +161,10 @@ namespace NowplayingTunes.Core
                             //差を求める
                             IventHistory IvnHistory = SongManagementForEventSender.IventHistoryList[SongManagementForEventSender.IventHistoryList.Count - 1];
                             TimeSpan span = DateTime.Now - IvnHistory.Time;
-                            Debug.WriteLine("[Event SongChangeEventSender SongManagement]" + "Time span is " + span.TotalSeconds + "sec.");
+                            Trace.WriteLine("[Event SongChangeEventSender SongManagement]" + "Time span is " + span.TotalSeconds + "sec.");
                             if (span.TotalSeconds < EventSetting.TimeElapsedFromLastTweetSec)
                             {
-                                Debug.WriteLine("[Event SongChangeEventSender SongManagement]" + "Time not elapsed from last event!! Exit thread.");
+                                Trace.WriteLine("[Event SongChangeEventSender SongManagement]" + "Time not elapsed from last event!! Exit thread.");
                                 return;
                             }
                         }
@@ -176,7 +176,7 @@ namespace NowplayingTunes.Core
                 }
                 catch (System.Threading.ThreadAbortException)
                 {
-                    Debug.WriteLine("[Event SongChangeEventSender SongManagement] Thread Abort signal recived!! Aborting...");
+                    Trace.WriteLine("[Event SongChangeEventSender SongManagement] Thread Abort signal recived!! Aborting...");
                 }
             }
         }
