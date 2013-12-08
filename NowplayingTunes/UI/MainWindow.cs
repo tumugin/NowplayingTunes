@@ -47,6 +47,14 @@ namespace NowplayingTunes
                 item.SubItems.Add(account.TokenSecret);
                 item.Checked = account.Enabled;
             }
+            if (CheckBoxEnableAutoPost.Checked == true)
+            {
+                AutoPostONOFFToolStripMenuItem.Text = "自動投稿を無効にする";
+            }
+            else
+            {
+                AutoPostONOFFToolStripMenuItem.Text = "自動投稿を有効にする";
+            }
         }
 
         //UIからクラスに代入する
@@ -86,7 +94,9 @@ namespace NowplayingTunes
                 songmanage = new Core.SongManagement(itunes);
             }
             //イベントハンドラを登録
+            songmanage.OnSongChangedEvent -= songmanage_OnSongChangedEvent;
             songmanage.OnSongChangedEvent += songmanage_OnSongChangedEvent;
+            itunes.OniTunesStartExit -= itunes_OniTunesStartExit;
             itunes.OniTunesStartExit += itunes_OniTunesStartExit;
             //イベント発生条件を登録
             songmanage.EventSetting.EnableAutoPost = set.EnableAutoPost;
@@ -232,6 +242,11 @@ namespace NowplayingTunes
                 e.Cancel = true;
                 this.Hide();
             }
+            CloseAndSave();
+        }
+
+        void CloseAndSave()
+        {
             //フォームが閉じるときに設定を保存する
             try
             {
@@ -449,6 +464,31 @@ namespace NowplayingTunes
         {
             UI.ReplaceTextList dialog = new UI.ReplaceTextList();
             dialog.Show();
+        }
+
+        private void CheckBoxEnableAutoPost_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CheckBoxEnableAutoPost.Checked == true)
+            {
+                AutoPostONOFFToolStripMenuItem.Text = "自動投稿を無効にする";
+            }
+            else
+            {
+                AutoPostONOFFToolStripMenuItem.Text = "自動投稿を有効にする";
+            }
+        }
+
+        private void AutoPostONOFFToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (CheckBoxEnableAutoPost.Checked == true)
+            {
+                CheckBoxEnableAutoPost.Checked = false;
+            }
+            else
+            {
+                CheckBoxEnableAutoPost.Checked = true;
+            }
+            CloseAndSave();
         }
     }
 }

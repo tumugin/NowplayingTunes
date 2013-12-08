@@ -89,6 +89,9 @@
             this.終了ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.NewVersionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AutoPostToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.AutoPostONOFFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.SettingPanelTabControl.SuspendLayout();
             this.BasicSettings.SuspendLayout();
@@ -501,6 +504,7 @@
             this.CheckBoxEnableAutoPost.TabIndex = 0;
             this.CheckBoxEnableAutoPost.Text = "自動投稿をONにする";
             this.CheckBoxEnableAutoPost.UseVisualStyleBackColor = true;
+            this.CheckBoxEnableAutoPost.CheckedChanged += new System.EventHandler(this.CheckBoxEnableAutoPost_CheckedChanged);
             // 
             // UpdateSettings
             // 
@@ -649,11 +653,13 @@
             this.今すぐツイートToolStripMenuItem,
             this.toolStripSeparator1,
             this.設定ToolStripMenuItem,
+            this.AutoPostToolStripMenuItem,
+            this.toolStripSeparator3,
             this.終了ToolStripMenuItem,
             this.toolStripSeparator2,
             this.NewVersionToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(218, 126);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(218, 176);
             // 
             // カスタム投稿TToolStripMenuItem
             // 
@@ -704,6 +710,26 @@
             this.NewVersionToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.NewVersionToolStripMenuItem.Text = "アップデートを確認していません";
             this.NewVersionToolStripMenuItem.Click += new System.EventHandler(this.NewVersionToolStripMenuItem_Click);
+            // 
+            // AutoPostToolStripMenuItem
+            // 
+            this.AutoPostToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.AutoPostONOFFToolStripMenuItem});
+            this.AutoPostToolStripMenuItem.Name = "AutoPostToolStripMenuItem";
+            this.AutoPostToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.AutoPostToolStripMenuItem.Text = "自動投稿";
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(214, 6);
+            // 
+            // AutoPostONOFFToolStripMenuItem
+            // 
+            this.AutoPostONOFFToolStripMenuItem.Name = "AutoPostONOFFToolStripMenuItem";
+            this.AutoPostONOFFToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.AutoPostONOFFToolStripMenuItem.Text = "自動投稿をONにする";
+            this.AutoPostONOFFToolStripMenuItem.Click += new System.EventHandler(this.AutoPostONOFFToolStripMenuItem_Click);
             // 
             // MainWindow
             // 
@@ -810,6 +836,9 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.CheckBox CheckBoxDeleteText140;
         private System.Windows.Forms.CheckBox CheckBoxExitWithiTunes;
+        private System.Windows.Forms.ToolStripMenuItem AutoPostToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem AutoPostONOFFToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
     }
 }
 
