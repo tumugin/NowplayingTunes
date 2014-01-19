@@ -86,12 +86,12 @@
             this.今すぐツイートToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.設定ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AutoPostToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AutoPostONOFFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.終了ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.NewVersionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.AutoPostToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.AutoPostONOFFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.SettingPanelTabControl.SuspendLayout();
             this.BasicSettings.SuspendLayout();
@@ -607,7 +607,7 @@
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(102, 18);
             this.label11.TabIndex = 0;
-            this.label11.Text = "バージョン:2.0.2";
+            this.label11.Text = "バージョン:2.0.3";
             // 
             // label10
             // 
@@ -659,7 +659,7 @@
             this.toolStripSeparator2,
             this.NewVersionToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(218, 176);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(218, 154);
             // 
             // カスタム投稿TToolStripMenuItem
             // 
@@ -690,6 +690,26 @@
             this.設定ToolStripMenuItem.Text = "設定(&S)";
             this.設定ToolStripMenuItem.Click += new System.EventHandler(this.設定ToolStripMenuItem_Click);
             // 
+            // AutoPostToolStripMenuItem
+            // 
+            this.AutoPostToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.AutoPostONOFFToolStripMenuItem});
+            this.AutoPostToolStripMenuItem.Name = "AutoPostToolStripMenuItem";
+            this.AutoPostToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.AutoPostToolStripMenuItem.Text = "自動投稿";
+            // 
+            // AutoPostONOFFToolStripMenuItem
+            // 
+            this.AutoPostONOFFToolStripMenuItem.Name = "AutoPostONOFFToolStripMenuItem";
+            this.AutoPostONOFFToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.AutoPostONOFFToolStripMenuItem.Text = "自動投稿をONにする";
+            this.AutoPostONOFFToolStripMenuItem.Click += new System.EventHandler(this.AutoPostONOFFToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(214, 6);
+            // 
             // 終了ToolStripMenuItem
             // 
             this.終了ToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("終了ToolStripMenuItem.Image")));
@@ -710,26 +730,6 @@
             this.NewVersionToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.NewVersionToolStripMenuItem.Text = "アップデートを確認していません";
             this.NewVersionToolStripMenuItem.Click += new System.EventHandler(this.NewVersionToolStripMenuItem_Click);
-            // 
-            // AutoPostToolStripMenuItem
-            // 
-            this.AutoPostToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.AutoPostONOFFToolStripMenuItem});
-            this.AutoPostToolStripMenuItem.Name = "AutoPostToolStripMenuItem";
-            this.AutoPostToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
-            this.AutoPostToolStripMenuItem.Text = "自動投稿";
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(214, 6);
-            // 
-            // AutoPostONOFFToolStripMenuItem
-            // 
-            this.AutoPostONOFFToolStripMenuItem.Name = "AutoPostONOFFToolStripMenuItem";
-            this.AutoPostONOFFToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
-            this.AutoPostONOFFToolStripMenuItem.Text = "自動投稿をONにする";
-            this.AutoPostONOFFToolStripMenuItem.Click += new System.EventHandler(this.AutoPostONOFFToolStripMenuItem_Click);
             // 
             // MainWindow
             // 
