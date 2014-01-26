@@ -111,11 +111,11 @@ namespace NowplayingTunes
         {
             if (status == true)
             {
-                notifyIcon1.Icon = NowplayingTunes.Properties.Resources.NP_Icon_Enabled;
+                //notifyIcon1.Icon = NowplayingTunes.Properties.Resources.NP_Icon_Enabled;
             }
             else
             {
-                notifyIcon1.Icon = NowplayingTunes.Properties.Resources.NP_Icon_Disabled;
+                //notifyIcon1.Icon = NowplayingTunes.Properties.Resources.NP_Icon_Disabled;
                 //iTunesと同時に終了する設定ならば
                 if (CheckBoxExitWithiTunes.Checked == true)
                 {

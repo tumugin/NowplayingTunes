@@ -25,7 +25,7 @@ namespace NowplayingTunes.Core
             returnText = returnText.Replace("$RATING", song.SongRating.ToString());
             returnText = returnText.Replace("$TRACKNUMBER", song.SongTrackNumber.ToString());
             returnText = returnText.Replace("$YEAR", song.SongYear.ToString());
-            returnText = returnText.Replace("$NEWLINE", "\n");
+            returnText = returnText.Replace("$NEWLINE", System.Environment.NewLine);
             return returnText;
         }
     }

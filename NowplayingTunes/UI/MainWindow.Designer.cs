@@ -607,7 +607,7 @@
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(102, 18);
             this.label11.TabIndex = 0;
-            this.label11.Text = "バージョン:2.0.3";
+            this.label11.Text = "バージョン:2.0.4";
             // 
             // label10
             // 
