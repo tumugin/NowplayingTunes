@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace PluginReciver
+namespace PluginReceiver
 {
     public class StreamString
     {

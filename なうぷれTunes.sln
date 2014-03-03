@@ -12,7 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{6B9507
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginReciver", "PluginReciver\PluginReciver.csproj", "{62CE68F3-F819-42ED-B456-649D832533F3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginReceiver", "PluginReciver\PluginReceiver.csproj", "{62CE68F3-F819-42ED-B456-649D832533F3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
