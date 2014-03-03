@@ -7,7 +7,7 @@
     <ProjectGuid>{62CE68F3-F819-42ED-B456-649D832533F3}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PluginReciver</RootNamespace>
+    <RootNamespace>PluginReceiver</RootNamespace>
     <AssemblyName>PluginReciver</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
