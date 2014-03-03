@@ -38,6 +38,7 @@
             this.EnableAlbumArtTweet = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
+            this.KezuruButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBox1
@@ -128,11 +129,22 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // KezuruButton
+            // 
+            this.KezuruButton.Location = new System.Drawing.Point(225, 168);
+            this.KezuruButton.Name = "KezuruButton";
+            this.KezuruButton.Size = new System.Drawing.Size(106, 23);
+            this.KezuruButton.TabIndex = 8;
+            this.KezuruButton.Text = "140文字に削る";
+            this.KezuruButton.UseVisualStyleBackColor = true;
+            this.KezuruButton.Click += new System.EventHandler(this.KezuruButton_Click);
+            // 
             // TweetDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(530, 200);
+            this.Controls.Add(this.KezuruButton);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.EnableAlbumArtTweet);
@@ -165,5 +177,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button2;
         public System.Windows.Forms.ListView AccountList;
+        private System.Windows.Forms.Button KezuruButton;
     }
 }

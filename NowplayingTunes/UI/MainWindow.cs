@@ -18,6 +18,7 @@ namespace NowplayingTunes
     {
         public iTunes.LinkToiTunes itunes;
         public Core.SongManagement songmanage;
+        public Plugin.PluginSystem plugin;
         UpdateChecker.Updater updater;
 
         public MainWindow()
@@ -185,6 +186,9 @@ namespace NowplayingTunes
             //初期化処理
             PutSettingToUI(set);
             initiTunes(set);
+            //プラグインシステムの初期化
+            plugin = new Plugin.PluginSystem(songmanage);
+            plugin.StartThread();
 
             this.FormClosing += MainWindow_Closing;
             this.Shown += MainWindow_Shown;

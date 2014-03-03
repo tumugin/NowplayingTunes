@@ -84,6 +84,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\Debugger.cs" />
+    <Compile Include="Plugin\PluginSystem.cs" />
+    <Compile Include="Plugin\StreamString.cs" />
     <Compile Include="Twitter\TwitterPost.cs" />
     <Compile Include="UI\AddAccount.cs">
       <SubType>Form</SubType>

@@ -130,5 +130,19 @@ namespace NowplayingTunes.UI
                 button1.Enabled = true;
             }
         }
+
+        private void KezuruButton_Click(object sender, EventArgs e)
+        {
+            if (EnableAlbumArtTweet.Checked)
+            {
+                textBox1.Text =  textBox1.Text.Remove(114);
+                textBox1.Text += "...";
+            }
+            else
+            {
+                textBox1.Text = textBox1.Text.Remove(137);
+                textBox1.Text += "...";
+            }
+        }
     }
 }
