@@ -12,9 +12,13 @@ namespace PluginReceiver
     {
         static Thread PipeListenerThread;
         static Thread TimeoutThread;
-
+        static bool DebugMode = false;
         static void Main(string[] args)
         {
+            if (args.Length == 0)
+            {
+                DebugMode = true;
+            }
             PipeListenerThread = new Thread(PipeListener);
             TimeoutThread = new Thread(Timeout);
             PipeListenerThread.IsBackground = true;
@@ -22,7 +26,7 @@ namespace PluginReceiver
             PipeListenerThread.Start();
             TimeoutThread.Start();
             TimeoutThread.Join();
-            if (args.Length == 0)
+            if (DebugMode == true)
             {
                 Console.WriteLine("Press any key to continue...");
                 Console.ReadKey();
@@ -45,7 +49,13 @@ namespace PluginReceiver
             {
 
             }
-            
+            if (DebugMode == false)
+            {
+                if (TimeoutThread.IsAlive == true)
+                {
+                    TimeoutThread.Abort();
+                }
+            }
         }
 
         static void Timeout()
