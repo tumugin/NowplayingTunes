@@ -307,7 +307,7 @@ namespace NowplayingTunes
                 twitterpost.TweetText = TextBoxTweetText.Text;
                 twitterpost.AutoDeleteText = CheckBoxDeleteText140.Checked;
                 twitterpost.onProcessFinished += twitterpost_onProcessFinished;
-                if (checkBoxPostAlbumArtWork.Checked == true && song.getAlbumArtworkFileStream() != null && song.AlbumArtworkEnabled == false)
+                if (checkBoxPostAlbumArtWork.Checked == true && song.getAlbumArtworkFileStream() != null && song.AlbumArtworkEnabled == true)
                 {
                     Thread thread = new Thread(twitterpost.TweetWithImage);
                     thread.IsBackground = true;
