@@ -32,6 +32,7 @@ namespace NowplayingTunes.Core
             public int LateTweetSeconds = 60;
             public bool CheckIsTimeElapsedFromLastTweet = false;
             public int TimeElapsedFromLastTweetSec = 60;
+            public bool NoAlbumArtSameAlbum = false;
         }
         //イベント発生履歴保存用クラス
         public class IventHistory
@@ -166,6 +167,21 @@ namespace NowplayingTunes.Core
                             {
                                 Trace.WriteLine("[Event SongChangeEventSender SongManagement]" + "Time not elapsed from last event!! Exit thread.");
                                 return;
+                            }
+                        }
+                    }
+
+                    //アルバムが変わっていなかったらアルバムアートワークを添付しない
+                    if (EventSetting.NoAlbumArtSameAlbum)
+                    {
+                        //履歴が2件以上無いと処理出来ないのでチェック
+                        if (SongManagementForEventSender.SongList.Count >= 2)
+                        {
+                            //同じアルバムの場合は処理を抜ける
+                            if (SongManagementForEventSender.SongList[SongManagementForEventSender.SongList.Count - 2].SongAlbum == song.SongAlbum)
+                            {
+                                Trace.WriteLine("[Event SongChangeEventSender SongManagement]" + "Album not changed!! No Album Art.");
+                                song.AlbumArtworkEnabled = false;
                             }
                         }
                     }

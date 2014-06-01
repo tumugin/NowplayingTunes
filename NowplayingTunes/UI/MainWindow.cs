@@ -41,6 +41,7 @@ namespace NowplayingTunes
             NotifyUpdate.Checked = set.NotifyUpdate;
             numericUpDownWaitSecond.Value = set.WaitSecond;
             numericUpDownWaitSecond2.Value = set.WaitSecond2;
+            checkBoxSameAlbumNoArtwork.Checked = set.NoAlbumArtworkOnSameAlbum;
             foreach (Core.ApplicationSetting.AccountClass account in set.AccountList)
             {
                 ListViewItem item = AccountList.Items.Add(account.AccountName);
@@ -74,6 +75,7 @@ namespace NowplayingTunes
             set.WaitSecond2 = (int)numericUpDownWaitSecond2.Value;
             set.DeleteText140 = CheckBoxDeleteText140.Checked;
             set.ExitWithiTunes = CheckBoxExitWithiTunes.Checked;
+            set.NoAlbumArtworkOnSameAlbum = checkBoxSameAlbumNoArtwork.Checked;
             foreach (ListViewItem item in AccountList.Items)
             {
                 Core.ApplicationSetting.AccountClass account = new Core.ApplicationSetting.AccountClass();
@@ -106,6 +108,7 @@ namespace NowplayingTunes
             songmanage.EventSetting.EnableLateTweet = set.EnablePostWait;
             songmanage.EventSetting.LateTweetSeconds = set.WaitSecond;
             songmanage.EventSetting.TimeElapsedFromLastTweetSec = set.WaitSecond2;
+            songmanage.EventSetting.NoAlbumArtSameAlbum = set.NoAlbumArtworkOnSameAlbum;
         }
 
         void itunes_OniTunesStartExit(bool status)
@@ -304,7 +307,7 @@ namespace NowplayingTunes
                 twitterpost.TweetText = TextBoxTweetText.Text;
                 twitterpost.AutoDeleteText = CheckBoxDeleteText140.Checked;
                 twitterpost.onProcessFinished += twitterpost_onProcessFinished;
-                if (checkBoxPostAlbumArtWork.Checked == true && song.getAlbumArtworkFileStream() != null)
+                if (checkBoxPostAlbumArtWork.Checked == true && song.getAlbumArtworkFileStream() != null && song.AlbumArtworkEnabled == false)
                 {
                     Thread thread = new Thread(twitterpost.TweetWithImage);
                     thread.IsBackground = true;

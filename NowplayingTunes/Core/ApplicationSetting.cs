@@ -23,6 +23,7 @@ namespace NowplayingTunes.Core
             public bool PostAlbumArtWork = false;
             public bool DeleteText140 = false;
             public bool ExitWithiTunes = false;
+            public bool NoAlbumArtworkOnSameAlbum = false;
             public List<AccountClass> AccountList = new List<AccountClass>();
         }
         public class AccountClass

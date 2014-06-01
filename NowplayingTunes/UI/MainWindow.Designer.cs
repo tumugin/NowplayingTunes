@@ -92,6 +92,7 @@
             this.終了ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.NewVersionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.checkBoxSameAlbumNoArtwork = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.SettingPanelTabControl.SuspendLayout();
             this.BasicSettings.SuspendLayout();
@@ -356,6 +357,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.checkBoxSameAlbumNoArtwork);
             this.groupBox3.Controls.Add(this.CheckBoxDeleteText140);
             this.groupBox3.Controls.Add(this.checkBoxPostAlbumArtWork);
             this.groupBox3.Controls.Add(this.label5);
@@ -371,7 +373,7 @@
             this.groupBox3.Controls.Add(this.CheckBoxEnableAutoPost);
             this.groupBox3.Location = new System.Drawing.Point(3, 3);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(420, 303);
+            this.groupBox3.Size = new System.Drawing.Size(420, 323);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "自動投稿";
@@ -731,6 +733,16 @@
             this.NewVersionToolStripMenuItem.Text = "アップデートを確認していません";
             this.NewVersionToolStripMenuItem.Click += new System.EventHandler(this.NewVersionToolStripMenuItem_Click);
             // 
+            // checkBoxSameAlbumNoArtwork
+            // 
+            this.checkBoxSameAlbumNoArtwork.AutoSize = true;
+            this.checkBoxSameAlbumNoArtwork.Location = new System.Drawing.Point(6, 288);
+            this.checkBoxSameAlbumNoArtwork.Name = "checkBoxSameAlbumNoArtwork";
+            this.checkBoxSameAlbumNoArtwork.Size = new System.Drawing.Size(315, 22);
+            this.checkBoxSameAlbumNoArtwork.TabIndex = 13;
+            this.checkBoxSameAlbumNoArtwork.Text = "同じアルバムならアルバムアートワークを添付しない";
+            this.checkBoxSameAlbumNoArtwork.UseVisualStyleBackColor = true;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 18F);
@@ -839,6 +851,7 @@
         private System.Windows.Forms.ToolStripMenuItem AutoPostToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem AutoPostONOFFToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.CheckBox checkBoxSameAlbumNoArtwork;
     }
 }
 

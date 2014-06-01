@@ -25,6 +25,7 @@ namespace NowplayingTunes.Core
         public int SongTrackNumber; //トラックナンバー
         public String SongAlbumArtist; //アルバムアーティスト
         public int TrackDatabaseID;
+        public bool AlbumArtworkEnabled = true; //アルバムアートワークを有効にするかどうか
 
         public iTunesClass() { }
 
