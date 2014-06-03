@@ -28,7 +28,7 @@ namespace NowplayingTunes.iTunes
                 //プロセスがあればiTunesと接続する
                 iTunes = new iTunesAppClass();
                 iTunes.OnPlayerPlayEvent += iTunes_OnPlayerPlayEvent;
-                iTunes.OnAboutToPromptUserToQuitEvent += iTunes_OnAboutToPromptUserToQuitEvent;
+                iTunes.OnQuittingEvent += iTunes_OnAboutToPromptUserToQuitEvent;
                 OniTunesStartExit(true);
                 Trace.WriteLine("[Event init LinkToiTunes] Connect to iTunes OK!");
             }
