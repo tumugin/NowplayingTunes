@@ -31,37 +31,69 @@ namespace NowplayingTunes.Core
 
         public iTunesClass(iTunesLib.IITTrack track)
         {
-            //型を変換
-            iTunesLib.IITFileOrCDTrack track2 = (iTunesLib.IITFileOrCDTrack)track;
-            
-            SongAlbum = track2.Album;
-            SongAlbumArtist = track2.AlbumArtist;
-            SongArtist = track2.Artist;
-            SongComment = track2.Comment;
-            SongComposer = track2.Composer;
-            SongDiscCount = track2.DiscCount;
-            SongDiscNumber = track2.DiscNumber;
-            SongGenre = track2.Genre;
-            SongLastPlayed = track2.PlayedDate;
-            SongPlayedTimes = track2.PlayedCount;
-            SongRating = track2.Rating;
-            SongTitle = track2.Name;
-            SongTrackNumber = track2.TrackNumber;
-            SongYear = track2.Year;
-            TrackDatabaseID = track2.TrackDatabaseID;
-            if (SongAlbumArtist == "" | SongAlbumArtist == null)
-            {
-                SongAlbumArtist = SongArtist;
-            }
             try
             {
-                track2.Artwork[1].SaveArtworkToFile(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\tmp\" + TrackDatabaseID.ToString() + ".png");
+                //型を変換
+                iTunesLib.IITFileOrCDTrack track2 = (iTunesLib.IITFileOrCDTrack)track;
+
+                SongAlbum = track2.Album;
+                SongAlbumArtist = track2.AlbumArtist;
+                SongArtist = track2.Artist;
+                SongComment = track2.Comment;
+                SongComposer = track2.Composer;
+                SongDiscCount = track2.DiscCount;
+                SongDiscNumber = track2.DiscNumber;
+                SongGenre = track2.Genre;
+                SongLastPlayed = track2.PlayedDate;
+                SongPlayedTimes = track2.PlayedCount;
+                SongRating = track2.Rating;
+                SongTitle = track2.Name;
+                SongTrackNumber = track2.TrackNumber;
+                SongYear = track2.Year;
+                TrackDatabaseID = track2.TrackDatabaseID;
+                if (SongAlbumArtist == "" | SongAlbumArtist == null)
+                {
+                    SongAlbumArtist = SongArtist;
+                }
+                try
+                {
+                    track2.Artwork[1].SaveArtworkToFile(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\tmp\" + TrackDatabaseID.ToString() + ".png");
+                }
+                catch (Exception ex)
+                {
+                }
+                Marshal.FinalReleaseComObject(track2);
             }
-            catch (Exception ex)
+            catch (InvalidCastException castex)
             {
+                //キャスト出来ない曲(ホームシェアリング等)
+                SongAlbum = track.Album;
+                SongAlbumArtist = "";
+                SongArtist = track.Artist;
+                SongComment = track.Comment;
+                SongComposer = track.Composer;
+                SongDiscCount = track.DiscCount;
+                SongDiscNumber = track.DiscNumber;
+                SongGenre = track.Genre;
+                SongLastPlayed = track.PlayedDate;
+                SongPlayedTimes = track.PlayedCount;
+                SongRating = track.Rating;
+                SongTitle = track.Name;
+                SongTrackNumber = track.TrackNumber;
+                SongYear = track.Year;
+                TrackDatabaseID = track.TrackDatabaseID;
+                if (SongAlbumArtist == "" || SongAlbumArtist == null)
+                {
+                    SongAlbumArtist = SongArtist;
+                }
+                try
+                {
+                    track.Artwork[1].SaveArtworkToFile(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\tmp\" + TrackDatabaseID.ToString() + ".png");
+                }
+                catch (Exception ex)
+                {
+                }
             }
-            
-            Marshal.FinalReleaseComObject(track2);
         }
 
         public Image getAlbumArtwork()
