@@ -133,15 +133,18 @@ namespace NowplayingTunes.UI
 
         private void KezuruButton_Click(object sender, EventArgs e)
         {
-            if (EnableAlbumArtTweet.Checked)
+            if (EnableAlbumArtTweet.Checked && textBox1.Text.Length >= 114)
             {
                 textBox1.Text =  textBox1.Text.Remove(114);
                 textBox1.Text += "...";
             }
             else
             {
-                textBox1.Text = textBox1.Text.Remove(137);
-                textBox1.Text += "...";
+                if (textBox1.Text.Length >= 137)
+                {
+                    textBox1.Text = textBox1.Text.Remove(137);
+                    textBox1.Text += "...";
+                }
             }
         }
     }
