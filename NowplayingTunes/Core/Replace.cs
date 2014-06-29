@@ -26,6 +26,7 @@ namespace NowplayingTunes.Core
             returnText = returnText.Replace("$TRACKNUMBER", song.SongTrackNumber.ToString());
             returnText = returnText.Replace("$YEAR", song.SongYear.ToString());
             returnText = returnText.Replace("$NEWLINE", System.Environment.NewLine);
+            returnText = returnText.Replace("$GROUP", song.Group);
             return returnText;
         }
     }

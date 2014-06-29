@@ -26,6 +26,7 @@ namespace NowplayingTunes.Core
         public String SongAlbumArtist; //アルバムアーティスト
         public int TrackDatabaseID;
         public bool AlbumArtworkEnabled = true; //アルバムアートワークを有効にするかどうか
+        public String Group;
 
         public iTunesClass() { }
 
@@ -51,6 +52,7 @@ namespace NowplayingTunes.Core
                 SongTrackNumber = track2.TrackNumber;
                 SongYear = track2.Year;
                 TrackDatabaseID = track2.TrackDatabaseID;
+                Group = track2.Grouping;
                 if (SongAlbumArtist == "" | SongAlbumArtist == null)
                 {
                     SongAlbumArtist = SongArtist;
@@ -82,6 +84,7 @@ namespace NowplayingTunes.Core
                 SongTrackNumber = track.TrackNumber;
                 SongYear = track.Year;
                 TrackDatabaseID = track.TrackDatabaseID;
+                Group = track.Grouping;
                 if (SongAlbumArtist == "" || SongAlbumArtist == null)
                 {
                     SongAlbumArtist = SongArtist;
