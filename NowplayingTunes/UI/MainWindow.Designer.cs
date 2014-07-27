@@ -54,6 +54,7 @@
             this.ButtonAccountAdd = new System.Windows.Forms.Button();
             this.AutoPostSettings = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.checkBoxSameAlbumNoArtwork = new System.Windows.Forms.CheckBox();
             this.CheckBoxDeleteText140 = new System.Windows.Forms.CheckBox();
             this.checkBoxPostAlbumArtWork = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -92,7 +93,6 @@
             this.終了ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.NewVersionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.checkBoxSameAlbumNoArtwork = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.SettingPanelTabControl.SuspendLayout();
             this.BasicSettings.SuspendLayout();
@@ -378,6 +378,16 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "自動投稿";
             // 
+            // checkBoxSameAlbumNoArtwork
+            // 
+            this.checkBoxSameAlbumNoArtwork.AutoSize = true;
+            this.checkBoxSameAlbumNoArtwork.Location = new System.Drawing.Point(6, 288);
+            this.checkBoxSameAlbumNoArtwork.Name = "checkBoxSameAlbumNoArtwork";
+            this.checkBoxSameAlbumNoArtwork.Size = new System.Drawing.Size(315, 22);
+            this.checkBoxSameAlbumNoArtwork.TabIndex = 13;
+            this.checkBoxSameAlbumNoArtwork.Text = "同じアルバムならアルバムアートワークを添付しない";
+            this.checkBoxSameAlbumNoArtwork.UseVisualStyleBackColor = true;
+            // 
             // CheckBoxDeleteText140
             // 
             this.CheckBoxDeleteText140.AutoSize = true;
@@ -609,7 +619,7 @@
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(102, 18);
             this.label11.TabIndex = 0;
-            this.label11.Text = "バージョン:2.0.5";
+            this.label11.Text = "バージョン:2.0.6";
             // 
             // label10
             // 
@@ -732,16 +742,6 @@
             this.NewVersionToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.NewVersionToolStripMenuItem.Text = "アップデートを確認していません";
             this.NewVersionToolStripMenuItem.Click += new System.EventHandler(this.NewVersionToolStripMenuItem_Click);
-            // 
-            // checkBoxSameAlbumNoArtwork
-            // 
-            this.checkBoxSameAlbumNoArtwork.AutoSize = true;
-            this.checkBoxSameAlbumNoArtwork.Location = new System.Drawing.Point(6, 288);
-            this.checkBoxSameAlbumNoArtwork.Name = "checkBoxSameAlbumNoArtwork";
-            this.checkBoxSameAlbumNoArtwork.Size = new System.Drawing.Size(315, 22);
-            this.checkBoxSameAlbumNoArtwork.TabIndex = 13;
-            this.checkBoxSameAlbumNoArtwork.Text = "同じアルバムならアルバムアートワークを添付しない";
-            this.checkBoxSameAlbumNoArtwork.UseVisualStyleBackColor = true;
             // 
             // MainWindow
             // 
