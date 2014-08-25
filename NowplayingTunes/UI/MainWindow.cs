@@ -497,5 +497,10 @@ namespace NowplayingTunes
             }
             CloseAndSave();
         }
+
+        private void LuaReload_Click(object sender, EventArgs e)
+        {
+            Twitter.TwitterPost.luaFunc = null;
+        }
     }
 }

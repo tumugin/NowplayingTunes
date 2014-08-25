@@ -93,6 +93,7 @@
             this.終了ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.NewVersionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.LuaReload = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SettingPanelTabControl.SuspendLayout();
             this.BasicSettings.SuspendLayout();
@@ -561,6 +562,7 @@
             // 
             // DebugMode
             // 
+            this.DebugMode.Controls.Add(this.LuaReload);
             this.DebugMode.Controls.Add(this.DebugTextBox);
             this.DebugMode.Location = new System.Drawing.Point(4, 27);
             this.DebugMode.Name = "DebugMode";
@@ -743,6 +745,16 @@
             this.NewVersionToolStripMenuItem.Text = "アップデートを確認していません";
             this.NewVersionToolStripMenuItem.Click += new System.EventHandler(this.NewVersionToolStripMenuItem_Click);
             // 
+            // LuaReload
+            // 
+            this.LuaReload.Location = new System.Drawing.Point(4, 320);
+            this.LuaReload.Name = "LuaReload";
+            this.LuaReload.Size = new System.Drawing.Size(154, 23);
+            this.LuaReload.TabIndex = 1;
+            this.LuaReload.Text = "Luaスクリプト読み直し";
+            this.LuaReload.UseVisualStyleBackColor = true;
+            this.LuaReload.Click += new System.EventHandler(this.LuaReload_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 18F);
@@ -852,6 +864,7 @@
         private System.Windows.Forms.ToolStripMenuItem AutoPostONOFFToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.CheckBox checkBoxSameAlbumNoArtwork;
+        private System.Windows.Forms.Button LuaReload;
     }
 }
 

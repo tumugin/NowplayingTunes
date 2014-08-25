@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TweetSharp;
+using NLua;
 
 namespace NowplayingTunes.Twitter
 {
@@ -15,9 +16,25 @@ namespace NowplayingTunes.Twitter
         public String TweetText;
         public List<Core.ApplicationSetting.AccountClass> AccountList = new List<Core.ApplicationSetting.AccountClass>();
         public bool AutoDeleteText = false;
+        //Lua
+        public static Lua lua = new Lua();
+        public static LuaFunction luaFunc;
         //処理完了イベント
         public delegate void onProcessFinishedHandler(List<TwitterService> response);
         public event onProcessFinishedHandler onProcessFinished;
+
+        public TwitterPost()
+        {
+            //シングルトンだし...まぁ多少はね?
+            if (luaFunc != null) return;
+            //Luaのファイルをとりあえず走らせちゃう
+            lua.LoadCLRPackage();
+            lua.RegisterFunction("console", typeof(Trace).GetMethod("WriteLine", new Type[] { typeof(string)}));
+            lua.DoFile(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Lua\tweet.lua");
+            //ツイート時のfunctionを取得
+            lua.GetFunction("main").Call();
+            luaFunc = lua.GetFunction("OnTweet");
+        }
 
         public void TweetWithImage()
         {
@@ -43,8 +60,13 @@ namespace NowplayingTunes.Twitter
                     }
                     //opt.Status = HttpUtility.UrlEncode(opt.Status);
                     opt.Images = new Dictionary<string, System.IO.Stream> { { "image", stream } };
-                    service.SendTweetWithMedia(opt);
-                    ResponseList.Add(service);
+                    //Luaの関数を走らせる
+                    bool luaRet = (bool)luaFunc.Call(Song, opt)[0];
+                    if (luaRet == true)
+                    {
+                        service.SendTweetWithMedia(opt);
+                        ResponseList.Add(service);
+                    }
                     stream.Close();
                     stream.Dispose();
                 }
@@ -74,8 +96,13 @@ namespace NowplayingTunes.Twitter
                     opt.Status = opt.Status.Remove(137);//...の三文字分含めて削除
                     opt.Status += "...";
                 }
-                service.SendTweet(opt);
-                ResponseList.Add(service);
+                //Luaの関数を走らせる
+                bool luaRet = (bool) luaFunc.Call(Song, opt)[0];
+                if (luaRet == true)
+                {
+                    service.SendTweet(opt);
+                    ResponseList.Add(service);
+                }
             }
             //完了イベントを投げる
             onProcessFinished(ResponseList);
