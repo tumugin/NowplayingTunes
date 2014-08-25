@@ -16,6 +16,7 @@ namespace NowplayingTunes.Twitter
         public String TweetText;
         public List<Core.ApplicationSetting.AccountClass> AccountList = new List<Core.ApplicationSetting.AccountClass>();
         public bool AutoDeleteText = false;
+        public bool isCustomTweet = false;
         //Lua
         public static Lua lua = new Lua();
         public static LuaFunction luaFunc;
@@ -61,7 +62,7 @@ namespace NowplayingTunes.Twitter
                     //opt.Status = HttpUtility.UrlEncode(opt.Status);
                     opt.Images = new Dictionary<string, System.IO.Stream> { { "image", stream } };
                     //Luaの関数を走らせる
-                    bool luaRet = (bool)luaFunc.Call(Song, opt)[0];
+                    bool luaRet = (bool)luaFunc.Call(Song, opt, isCustomTweet)[0];
                     if (luaRet == true)
                     {
                         service.SendTweetWithMedia(opt);
@@ -97,7 +98,7 @@ namespace NowplayingTunes.Twitter
                     opt.Status += "...";
                 }
                 //Luaの関数を走らせる
-                bool luaRet = (bool) luaFunc.Call(Song, opt)[0];
+                bool luaRet = (bool)luaFunc.Call(Song, opt, isCustomTweet)[0];
                 if (luaRet == true)
                 {
                     service.SendTweet(opt);

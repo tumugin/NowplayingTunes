@@ -66,6 +66,7 @@ namespace NowplayingTunes.UI
 
                 //バックグラウンドで実行する
                 Twitter.TwitterPost twitterpost = new Twitter.TwitterPost();
+                twitterpost.isCustomTweet = true;
                 twitterpost.AccountList = acclist;
                 twitterpost.Song = song;
                 twitterpost.TweetText = textBox1.Text;
