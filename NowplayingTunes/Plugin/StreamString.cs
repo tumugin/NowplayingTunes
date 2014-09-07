@@ -24,8 +24,10 @@ namespace NowplayingTunes.Plugin
             len += ioStream.ReadByte();
             byte[] inBuffer = new byte[len];
             ioStream.Read(inBuffer, 0, len);
-
-            return streamEncoding.GetString(inBuffer);
+            string mojibake = System.Text.Encoding.Unicode.GetString(inBuffer);
+            byte[] bytes = System.Text.Encoding.GetEncoding(28591).GetBytes(mojibake);
+            return System.Text.Encoding.UTF8.GetString(bytes);
+            //return streamEncoding.GetString(inBuffer);
         }
 
         public int WriteString(string outString)

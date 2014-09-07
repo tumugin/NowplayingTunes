@@ -90,6 +90,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\Debugger.cs" />
+    <Compile Include="Plugin\ExternalPlayerPipe.cs" />
     <Compile Include="Plugin\PluginSystem.cs" />
     <Compile Include="Plugin\StreamString.cs" />
     <Compile Include="Twitter\TwitterPost.cs" />

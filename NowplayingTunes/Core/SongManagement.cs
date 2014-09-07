@@ -52,7 +52,7 @@ namespace NowplayingTunes.Core
             itunesclass = ev;
         }
 
-        void ev_OnPlayerPlayEvent(iTunesClass song)
+        public void ev_OnPlayerPlayEvent(iTunesClass song)
         {
             //iTunesのスレッドで実行されてるから使う時は必ずスレッドを建てること!!
             Trace.WriteLine("[Event OnPlayerPlayEvent(iTunesThread) SongManagement]" + "Title:" + song.SongTitle + ",Artist:" + song.SongArtist);

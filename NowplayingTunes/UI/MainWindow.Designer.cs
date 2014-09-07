@@ -73,6 +73,7 @@
             this.NotifyUpdate = new System.Windows.Forms.CheckBox();
             this.CheckUpdate = new System.Windows.Forms.CheckBox();
             this.DebugMode = new System.Windows.Forms.TabPage();
+            this.LuaReload = new System.Windows.Forms.Button();
             this.DebugTextBox = new System.Windows.Forms.TextBox();
             this.VersionInfo = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -93,7 +94,6 @@
             this.終了ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.NewVersionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.LuaReload = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SettingPanelTabControl.SuspendLayout();
             this.BasicSettings.SuspendLayout();
@@ -571,6 +571,16 @@
             this.DebugMode.Text = "デバッグモード";
             this.DebugMode.UseVisualStyleBackColor = true;
             // 
+            // LuaReload
+            // 
+            this.LuaReload.Location = new System.Drawing.Point(4, 320);
+            this.LuaReload.Name = "LuaReload";
+            this.LuaReload.Size = new System.Drawing.Size(154, 23);
+            this.LuaReload.TabIndex = 1;
+            this.LuaReload.Text = "Luaスクリプト読み直し";
+            this.LuaReload.UseVisualStyleBackColor = true;
+            this.LuaReload.Click += new System.EventHandler(this.LuaReload_Click);
+            // 
             // DebugTextBox
             // 
             this.DebugTextBox.Location = new System.Drawing.Point(3, 3);
@@ -621,7 +631,7 @@
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(102, 18);
             this.label11.TabIndex = 0;
-            this.label11.Text = "バージョン:2.0.6";
+            this.label11.Text = "バージョン:2.0.8";
             // 
             // label10
             // 
@@ -744,16 +754,6 @@
             this.NewVersionToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.NewVersionToolStripMenuItem.Text = "アップデートを確認していません";
             this.NewVersionToolStripMenuItem.Click += new System.EventHandler(this.NewVersionToolStripMenuItem_Click);
-            // 
-            // LuaReload
-            // 
-            this.LuaReload.Location = new System.Drawing.Point(4, 320);
-            this.LuaReload.Name = "LuaReload";
-            this.LuaReload.Size = new System.Drawing.Size(154, 23);
-            this.LuaReload.TabIndex = 1;
-            this.LuaReload.Text = "Luaスクリプト読み直し";
-            this.LuaReload.UseVisualStyleBackColor = true;
-            this.LuaReload.Click += new System.EventHandler(this.LuaReload_Click);
             // 
             // MainWindow
             // 

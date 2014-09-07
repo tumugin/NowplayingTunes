@@ -19,6 +19,7 @@ namespace NowplayingTunes
         public iTunes.LinkToiTunes itunes;
         public Core.SongManagement songmanage;
         public Plugin.PluginSystem plugin;
+        public Plugin.ExternalPlayerPipe externalplayer;
         UpdateChecker.Updater updater;
 
         public MainWindow()
@@ -192,6 +193,9 @@ namespace NowplayingTunes
             //プラグインシステムの初期化
             plugin = new Plugin.PluginSystem(songmanage);
             plugin.StartThread();
+            externalplayer = new Plugin.ExternalPlayerPipe();
+            externalplayer.StartThread();
+            externalplayer.onSongChangedEvent += externalplayer_onSongChangedEvent;
 
             this.FormClosing += MainWindow_Closing;
             this.Shown += MainWindow_Shown;
@@ -206,6 +210,11 @@ namespace NowplayingTunes
                 UpdaterThread.IsBackground = true;
                 UpdaterThread.Start();
             }
+        }
+
+        void externalplayer_onSongChangedEvent(iTunesClass song)
+        {
+            songmanage.ev_OnPlayerPlayEvent(song);
         }
 
         void updater_CheckUpdateFinished(Version ver, string Updatetext, string UpdateURL)
