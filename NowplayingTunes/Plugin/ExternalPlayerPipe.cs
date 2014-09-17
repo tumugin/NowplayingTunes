@@ -45,7 +45,9 @@ namespace NowplayingTunes.Plugin
                 //When Connected
                 StreamString stream = new StreamString(pipeServer);
                 String playerStr = stream.ReadString();
+                Debug.WriteLine("[foobar2000]Song changed.");
                 Debug.WriteLine(playerStr);
+                Debug.WriteLine("[foobar2000]dump end.");
                 String[] playerStrSplit = playerStr.Split('\n');
                 Core.iTunesClass song = new Core.iTunesClass();
                 song.AlbumArtworkEnabled = false;
@@ -70,7 +72,7 @@ namespace NowplayingTunes.Plugin
             }
             catch (Exception ex)
             {
-                Debug.WriteLine("[PluginSystem] ERROR");
+                Debug.WriteLine("[foobar2000] ERROR");
                 Debug.WriteLine(ex.ToString());
             }
             finally
