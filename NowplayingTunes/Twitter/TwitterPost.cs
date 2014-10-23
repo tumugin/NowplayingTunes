@@ -62,9 +62,20 @@ namespace NowplayingTunes.Twitter
                     //opt.Status = HttpUtility.UrlEncode(opt.Status);
                     opt.Images = new Dictionary<string, System.IO.Stream> { { "image", stream } };
                     //Luaの関数を走らせる
-                    bool luaRet = (bool)luaFunc.Call(Song, opt, isCustomTweet)[0];
-                    if (luaRet == true)
+                    try
                     {
+                        bool luaRet = (bool)luaFunc.Call(Song, opt, isCustomTweet)[0];
+                        if (luaRet == true)
+                        {
+                            service.SendTweetWithMedia(opt);
+                            ResponseList.Add(service);
+                        }
+                    }
+                    catch (Exception ex2)
+                    {
+                        //Luaが失敗しても死なないようにする
+                        Trace.WriteLine("Lua error.");
+                        Trace.WriteLine(ex2.ToString());
                         service.SendTweetWithMedia(opt);
                         ResponseList.Add(service);
                     }
@@ -98,12 +109,23 @@ namespace NowplayingTunes.Twitter
                     opt.Status += "...";
                 }
                 //Luaの関数を走らせる
-                bool luaRet = (bool)luaFunc.Call(Song, opt, isCustomTweet)[0];
-                if (luaRet == true)
-                {
-                    service.SendTweet(opt);
-                    ResponseList.Add(service);
-                }
+                try
+                    {
+                        bool luaRet = (bool)luaFunc.Call(Song, opt, isCustomTweet)[0];
+                        if (luaRet == true)
+                        {
+                            service.SendTweet(opt);
+                            ResponseList.Add(service);
+                        }
+                    }
+                    catch (Exception ex2)
+                    {
+                        //Luaが失敗しても死なないようにする
+                        Trace.WriteLine("Lua error.");
+                        Trace.WriteLine(ex2.ToString());
+                        service.SendTweet(opt);
+                        ResponseList.Add(service);
+                    }
             }
             //完了イベントを投げる
             onProcessFinished(ResponseList);
