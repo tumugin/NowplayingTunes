@@ -160,11 +160,18 @@ namespace NowplayingTunes
             Core.Debugger.TextBoxTraceListener tbtl = new Core.Debugger.TextBoxTraceListener(DebugTextBox);
             //Debug.Listeners.Add(tbtl);
             Trace.Listeners.Add(tbtl);
-
+            String TMPDIR = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\tmp\";
             //tmpフォルダの作成
-            if (System.IO.Directory.Exists(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\tmp\") == false)
+            if (System.IO.Directory.Exists(TMPDIR) == false)
             {
-                System.IO.Directory.CreateDirectory(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\tmp\");
+                System.IO.Directory.CreateDirectory(TMPDIR);
+            }
+            else
+            {
+                //tmpをクリアする
+                foreach(String path in System.IO.Directory.GetFiles(TMPDIR)){
+                    System.IO.File.Delete(path);
+                }
             }
 
             //設定を読み出す
