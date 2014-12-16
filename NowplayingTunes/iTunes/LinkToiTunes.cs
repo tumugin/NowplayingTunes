@@ -108,6 +108,7 @@ namespace NowplayingTunes.iTunes
         //曲が再生されているか確認する
         public bool checkIsPlaying()
         {
+            if (iTunes == null) return true;
             if(iTunes.PlayerState == ITPlayerState.ITPlayerStatePlaying)
             {
                 return true;

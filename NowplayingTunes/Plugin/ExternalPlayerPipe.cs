@@ -55,6 +55,7 @@ namespace NowplayingTunes.Plugin
                 song.SongAlbum = playerStrSplit[1];
                 song.SongArtist = playerStrSplit[2];
                 song.SongAlbumArtist = playerStrSplit[3];
+                song.isFoobar = true;
                 try
                 {
                     song.SongTrackNumber = int.Parse(playerStrSplit[4]);

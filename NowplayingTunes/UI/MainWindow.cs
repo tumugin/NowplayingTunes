@@ -298,7 +298,7 @@ namespace NowplayingTunes
                 Trace.WriteLine("[Event 自動投稿 MainWindow]" + "Sending tweet...");
 
                 //曲が再生されているか確認する
-                if(itunes.checkIsPlaying() == false)
+                if(itunes.checkIsPlaying() == false && song.isFoobar == false)
                 {
                     Trace.WriteLine("[Event 自動投稿 MainWindow]" + "Not playing... exit thread.");
                     return;
@@ -340,7 +340,7 @@ namespace NowplayingTunes
             }
             catch (Exception ex)
             {
-                Debug.Write(ex.ToString());
+                Trace.Write(ex.ToString());
             }
         }
 

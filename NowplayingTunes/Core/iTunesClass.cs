@@ -27,6 +27,7 @@ namespace NowplayingTunes.Core
         public int TrackDatabaseID;
         public bool AlbumArtworkEnabled = true; //アルバムアートワークを有効にするかどうか
         public String Group;
+        public bool isFoobar = false;
 
         public iTunesClass() { }
 
