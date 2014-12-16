@@ -27,7 +27,7 @@ namespace NowplayingTunes.Twitter
         public TwitterPost()
         {
             //シングルトンだし...まぁ多少はね?
-            if (luaFunc != null) return;
+            if (lua != null && luaFunc != null) return;
             //Luaのファイルをとりあえず走らせちゃう
             lua.LoadCLRPackage();
             lua.RegisterFunction("console", typeof(Trace).GetMethod("WriteLine", new Type[] { typeof(string)}));
