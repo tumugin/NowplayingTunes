@@ -629,9 +629,9 @@
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(4, 4);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(102, 18);
+            this.label11.Size = new System.Drawing.Size(109, 18);
             this.label11.TabIndex = 0;
-            this.label11.Text = "バージョン:2.0.9";
+            this.label11.Text = "バージョン:2.0.10";
             // 
             // label10
             // 

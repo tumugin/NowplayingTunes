@@ -24,7 +24,7 @@ namespace NowplayingTunes.Core
         public int SongDiscNumber; //ディスク番号
         public int SongTrackNumber; //トラックナンバー
         public String SongAlbumArtist; //アルバムアーティスト
-        public int TrackDatabaseID;
+        public int TrackDatabaseID = new System.Random().Next(int.MaxValue); //データベースID(foobar2000用に乱数がデフォ)
         public bool AlbumArtworkEnabled = true; //アルバムアートワークを有効にするかどうか
         public String Group;
         public bool isFoobar = false;
